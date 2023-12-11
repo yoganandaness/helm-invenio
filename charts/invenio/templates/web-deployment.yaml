@@ -131,10 +131,10 @@ spec:
           - name: nginx-invenio-assets
             mountPath: /opt/nginx-invenio-assets
           {{- if .Values.persistence.enabled }}
-          - mountPath: /opt/invenio/var/instance/data
+          - mountPath: /opt/k8s-pods/data/digital-repository-shared-volume-dev/data
             name: {{ .Values.persistence.name }}
             subPath: data
-          - mountPath: /opt/invenio/var/instance/profiler
+          - mountPath: /opt/k8s-pods/data/digital-repository-shared-volume-dev/profiler
             name: {{ .Values.persistence.name }}
             subPath: profiler
           {{- end }}
