@@ -1,10 +1,10 @@
-host: yourhost.localhost
+host: ess-digital-repository.swap.ess.eu
 
 ingress:
   # these values have no effect on openshift
-  enabled: false
-  class: nginx-internal
-  sslSecretName: your-ssl-secret
+  enabled: true
+  class: nginx
+  sslSecretName: userofficelu
 
 invenio:
   secret_key: "secret-key"
