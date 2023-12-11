@@ -26,7 +26,7 @@ spec:
             - containerPort: 5672
           volumeMounts:
             - name: rabbitmq-volume
-              mountPath: /var/lib/rabbitmq
+              mountPath: /opt/k8s-pods/data/digital-repository-rabbitmq-volume-dev
           env:
             - name: TZ
               value: "Europe/Zurich"
