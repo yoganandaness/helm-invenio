@@ -29,7 +29,7 @@ spec:
               name: tcp
           volumeMounts:
             - name: redis-volume
-              mountPath: /data
+              mountPath: /opt/k8s-pods/data/digital-repository-redis-volume-dev/
           readinessProbe:
             exec:
               command:
