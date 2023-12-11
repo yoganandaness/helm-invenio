@@ -9,7 +9,7 @@ spec:
     storage: {{.Values.redis.persistence.size}}
   volumeMode: Filesystem
   accessModes:
-    {{- toYaml .Values.redis.persistence.access_mode | nindent 4 }}
+  - {{ .Values.redis.persistence.access_mode }}
   persistentVolumeReclaimPolicy: Retain
   storageClassName: {{ .Values.redis.persistence.storage_class }}
   nfs:
