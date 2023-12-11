@@ -155,7 +155,7 @@ workerBeat:
 
 persistence:
   enabled: true
-  name: "digital-repository-shared-volume-dev"
+  name: "shared-volume"
   access_mode: ReadWriteMany
   size: 10G
   storage_class: "nfs-storage"
@@ -166,7 +166,7 @@ redis:
   host: ""
   persistence:
     enabled: true
-    name: "digital-repository-redis-volume-dev"
+    name: "redis-volume"
     access_mode: ReadWriteMany
     size: 1G
     storage_class: "nfs-storage"
@@ -188,7 +188,7 @@ rabbitmq:
   management_host: ""
   persistence:
     enabled: true
-    name: "digital-repository-rabbitmq-volume-dev"
+    name: "rabbitmq-volume"
     access_mode: ReadWriteMany
     size: 1G
     storage_class: "nfs-storage"
