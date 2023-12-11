@@ -1,0 +1,16 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ .Values.rabbitmq.persistence.name }}
+  labels:
+    app: web
+spec:
+  capacity:
+    storage: {{.Values.rabbitmq.persistence.size}}
+  volumeMode: Filesystem
+  accessModes:
+    {{- toYaml .Values.rabbitmq.persistence.access_mode | nindent 4 }}
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: {{ .Values.rabbitmq.persistence.storage_class }}
+  nfs:
+    {{- toYaml .Values.rabbitmq.persistence.nfs | nindent 4 }}

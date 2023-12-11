@@ -1,0 +1,16 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ .Values.persistence.name }}
+  labels:
+    app: web
+spec:
+  capacity:
+    storage: {{.Values.persistence.size}}
+  volumeMode: Filesystem
+  accessModes:
+    {{- toYaml .Values.persistence.access_mode | nindent 4 }}
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: {{ .Values.persistence.storage_class }}
+  nfs:
+    {{- toYaml .Values.persistence.nfs | nindent 4 }}
