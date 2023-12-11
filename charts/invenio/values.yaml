@@ -157,7 +157,7 @@ persistence:
   enabled: true
   name: "shared-volume"
   access_mode: ReadWriteMany
-  size: 2G
+  size: 10G
   storage_class: "nfs-storage"
   nfs:
     path: /opt/k8s-pods/data/digital-repository-shared-volume-dev
