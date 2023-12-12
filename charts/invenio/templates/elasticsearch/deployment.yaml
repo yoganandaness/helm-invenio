@@ -24,7 +24,7 @@ spec:
       securityContext:
         {{- toYaml .Values.elasticsearch.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}-elasticsearch-
+        - name: {{ .Chart.Name }}-elasticsearch
           env:
             - name: ELASTIC_PASSWORD
               valueFrom:
