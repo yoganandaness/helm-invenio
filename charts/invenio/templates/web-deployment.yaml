@@ -61,13 +61,11 @@ spec:
             secretKeyRef:
               name: invenio-secrets
               key: INVENIO_CSRF_SECRET_SALT
-        {{- if not .Values.elasticsearch.enabled }}
         - name: INVENIO_SEARCH_HOSTS
           valueFrom:
             secretKeyRef:
               name: {{ .Values.elasticsearch.secret_name }}
               key: INVENIO_SEARCH_HOSTS
-        {{- end }}
         {{- if .Values.invenio.sentry.enabled }}
         - name: INVENIO_SENTRY_DSN
           valueFrom:
