@@ -24,16 +24,16 @@ spec:
       securityContext:
         {{- toYaml .Values.elasticsearch.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}-elasticsearch
+        - name: elasticsearch
           env:
             - name: ELASTIC_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Chart.Name }}-elasticsearch-{{ .Values.elasticsearch.postfix }}-secret
+                  name: elasticsearch-secret
                   key: ELASTIC_PASSWORD
           envFrom:
           - configMapRef:
-              name: {{ include "scicat-elastic-search.fullname" . }}-configmap
+              name: elasticsearch--configmap
           securityContext:
             {{- toYaml .Values.elasticsearch.securityContext | nindent 12 }}
           image: "{{ .Values.elasticsearch.image.repository }}:{{ .Values.elasticsearch.image.tag }}"

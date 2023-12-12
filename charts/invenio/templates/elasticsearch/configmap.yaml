@@ -6,4 +6,4 @@ kind: ConfigMap
 metadata:
   labels:
     app: elasticsearch
-  name: elasticsearch
+  name: elasticsearch-configmap
