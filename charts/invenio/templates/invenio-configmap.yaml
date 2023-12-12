@@ -11,8 +11,8 @@ data:
   INVENIO_CELERY_RESULT_BACKEND: 'redis://{{ include "redis.host_name" . }}:6379/2'
   INVENIO_RATELIMIT_STORAGE_URL: 'redis://{{ include "redis.host_name" . }}:6379/3'
   INVENIO_COMMUNITIES_IDENTITIES_CACHE_REDIS_URL: 'redis://{{ include "redis.host_name" . }}:6379/4'
-  INVENIO_SEARCH_ELASTIC_HOSTS: ['https://elasticsearch:9200']
-  INVENIO_SEARCH_HOSTS: ['https://elasticsearch:9200']
+  INVENIO_SEARCH_ELASTIC_HOSTS: ['https://elastic:password@elasticsearch:9200']
+  INVENIO_SEARCH_HOSTS: ['https://elastic:password@elasticsearch:9200']
   INVENIO_SITE_HOSTNAME: '{{ .Values.host }}'
   INVENIO_SITE_UI_URL: 'https://{{ .Values.host }}'
   INVENIO_SITE_API_URL: 'https://{{ .Values.host }}/api'
