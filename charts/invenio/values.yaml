@@ -249,7 +249,7 @@ search:
 elasticsearch:
   enabled: true
   secret_name: "search-secrets"
-  invenio_hosts: "[{'host': 'search'}]"
+  invenio_hosts: "[{'host': 'elasticsearch'}]"
   replicaCount: 1
   image:
     repository: docker.elastic.co/elasticsearch/elasticsearch
