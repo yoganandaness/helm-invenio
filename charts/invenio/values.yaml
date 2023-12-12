@@ -258,7 +258,6 @@ elasticsearch:
   secret:
     data:
       ELASTIC_PASSWORD: cGFzc3dvcmQ=
-      INVENIO_SEARCH_HOSTS: "[{'host': 'elasticsearch'}]"
   # Allows you to load environment variables from kubernetes secret or config map
   envFrom:
     - configMapRef:
