@@ -56,7 +56,7 @@ spec:
 
                 http() {
                     local path="${1}"
-                    HTTP_CODE=$(curl --output /dev/null -k -s -w "%{http_code}" -u "elastic:${ELASTIC_PASSWORD}" "https://localhost:9200${path}")
+                    HTTP_CODE=$(curl --output /dev/null -k -s -w "%{http_code}" -u "elastic:${ELASTIC_PASSWORD}" "http://localhost:9200${path}")
                     echo ${HTTP_CODE}
                 }
 
