@@ -239,7 +239,7 @@ postgresql:
 elasticsearch:
   enabled: true
   secret_name: "elasticsearch-secret"
-  invenio_hosts: "[{'host': 'elasticsearchs'}]"
+  invenio_hosts: "[{'host': 'elasticsearch'}]"
   replicaCount: 1
   image:
     repository: docker.elastic.co/elasticsearch/elasticsearch
