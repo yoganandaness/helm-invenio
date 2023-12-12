@@ -33,7 +33,7 @@ spec:
                   key: ELASTIC_PASSWORD
           envFrom:
           - configMapRef:
-              name: elasticsearch--configmap
+              name: elasticsearch-configmap
           securityContext:
             {{- toYaml .Values.elasticsearch.securityContext | nindent 12 }}
           image: "{{ .Values.elasticsearch.image.repository }}:{{ .Values.elasticsearch.image.tag }}"
