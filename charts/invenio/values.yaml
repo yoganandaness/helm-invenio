@@ -243,7 +243,7 @@ elasticsearch:
   replicaCount: 1
   image:
     repository: docker.elastic.co/elasticsearch/elasticsearch
-    tag: 8.8.2
+    tag: 7.17.16
     pullPolicy: Always
   imagePullSecrets: []
   nameOverride: ''
