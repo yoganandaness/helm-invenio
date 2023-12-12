@@ -246,6 +246,85 @@ search:
   user: "username" # unimplemented
   password: "password" # unimplemented
 
+elasticsearch:
+  enabled: true
+  secret_name: "search-secrets"
+  invenio_hosts: "[{'host': 'search'}]"
+  replicaCount: 1
+  image:
+    repository: docker.elastic.co/elasticsearch/elasticsearch
+    tag: 8.8.2
+    pullPolicy: Always
+  imagePullSecrets: []
+  nameOverride: ''
+  fullnameOverride: ''
+  configmap:
+    data:
+      node.name: es01
+      ES_JAVA_OPTS: '-Xms2g -Xmx2g'
+      cluster.name: 'es-cluster'
+      bootstrap.memory_lock: 'true'
+      discovery.type: 'single-node'
+  secret:
+    data:
+      ELASTIC_PASSWORD: cGFzc3dvcmQ=
+  # Allows you to load environment variables from kubernetes secret or config map
+  envFrom:
+    - configMapRef:
+        name: scicat-elastic-search-dev-configmap
+  env:
+    - name: ELASTIC_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: scicat-elastic-search
+          key: ELASTIC_PASSWORD
+  # - secretRef:
+  #     name: env-secret
+  # - configMapRef:
+  #     name: config-map
+  ingress:
+    enabled: false
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: false
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name:
+  podSecurityContext:
+    {}
+    # fsGroup: 2000
+  securityContext:
+    capabilities:
+      drop:
+        - ALL
+    # readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+  terminationGracePeriod: 120
+  sysctlVmMaxMapCount: 262144
+  service:
+    type: ClusterIP
+    port: 9200
+  esJavaOpts: '-Xmx2g -Xms2g'
+  resources:
+    requests:
+      cpu: '100m'
+      memory: '4Gi'
+    limits:
+      cpu: '1000m'
+      memory: 4Gi
+  readinessProbe:
+    failureThreshold: 3
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 3
+    timeoutSeconds: 5
+  clusterHealthCheckParams: 'wait_for_status=green&timeout=1s'
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  postfix: '-dev'
+
 logstash:
   enabled: false
   filebeat_image: "docker.elastic.co/beats/filebeat-oss:8.10.2"
