@@ -256,7 +256,6 @@ elasticsearch:
       bootstrap.memory_lock: 'true'
       discovery.type: 'single-node'
       xpack.security.enabled: false
-      xpack.security.enrollment.enabled: false
   secret:
     data:
       ELASTIC_PASSWORD: cGFzc3dvcmQ=
